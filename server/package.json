@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "access-control",
   "version": "1.0.0",
   "description": "This is access control system",
@@ -10,7 +11,20 @@
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "jsonwebtoken": "^9.0.2"
+    "express-limit": "^1.0.0",
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.12.0",
+    "mongoose": "^8.9.2",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.9.16",
+    "otp-generator": "^4.0.1",
+    "twilio": "^5.4.0",
+    "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
   }
 }
