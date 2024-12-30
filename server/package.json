@@ -3,8 +3,9 @@
   "name": "access-control",
   "version": "1.0.0",
   "description": "This is access control system",
-  "main": "server.js",
+  "main": "src/server.js",
   "scripts": {
+    "start": "nodemon src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "hiluf tesfay",
