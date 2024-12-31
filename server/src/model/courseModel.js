@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-
+import cleanSchemaPlugin from "./plugin.js";
 // Define the course schema
 const courseSchema = new mongoose.Schema({
   name: {
@@ -21,7 +21,7 @@ const courseSchema = new mongoose.Schema({
     required: true,
   },
 });
-
+courseSchema.plugin(cleanSchemaPlugin);
 const Course = mongoose.model("Course", courseSchema);
 
 export default Course;

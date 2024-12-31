@@ -1,5 +1,5 @@
 import Assessment from "./asignment";
 import Course from "./courseModel";
 import User from "./userModel";
-
-export { Assessment, Course, User };
+import Token from "./tokenModel";
+export { Assessment, Course, User, Token };

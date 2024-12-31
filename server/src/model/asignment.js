@@ -1,29 +1,28 @@
 import mongoose from "mongoose";
-
+import cleanSchemaPlugin from "./plugin.js";
+const assessmentTpes = ["Quiz", "Exam", "Assignment"];
 // Define the assessment schema
 const assessmentSchema = new mongoose.Schema({
   course: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Course", // Linking to the Course model
+    ref: "Course",
     required: true,
   },
   instructor: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "User", // Linking to the User model (instructor)
     required: true,
   },
   type: {
     type: String,
-    enum: ["Quiz", "Exam", "Assignment"], // Types of assessments
-    required: true,
+    enum: assessmentTpes,
   },
   marks: {
     type: Number,
     required: true,
-    min: [1, "Marks should be at least 1"], // Ensure at least 1 mark
+    min: [1, "Marks should be at least 1"],
   },
 });
-
+assessmentSchema.plugin(cleanSchemaPlugin);
 const Assessment = mongoose.model("Assessment", assessmentSchema);
 
 export default Assessment;

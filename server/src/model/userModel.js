@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
-
+import cleanSchemaPlugin from "./plugin";
 // Define the user schema
 const userSchema = new mongoose.Schema(
   {
@@ -54,6 +54,6 @@ userSchema.pre("save", async function (next) {
     next(error);
   }
 });
-
+userSchema.plugin(cleanSchemaPlugin);
 const User = mongoose.model("User", userSchema);
 export default User;
