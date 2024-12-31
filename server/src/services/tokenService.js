@@ -38,7 +38,7 @@ const deleteToken = async (token, id, type) => {
     type: type,
   });
   if (tokenDoc.deletedCount === 0) {
-    throw new CustomError(400, "Token not found or already deleted", true);
+    throw new CustomError(400, "Token not found or already deleted", "user");
   }
   return { message: "Deleted successfully" };
 };
@@ -52,7 +52,7 @@ const verifyToken = async (token, tokenType) => {
     blacklisted: false,
   });
   if (!tokenDoc) {
-    throw new CustomError(400, "Token verification failed", true);
+    throw new CustomError(400, "Token verification failed", "user");
   }
   return tokenDoc;
 };
@@ -128,7 +128,7 @@ const isAuthenticatedToken = (token) => {
 const extractToken = (headers) => {
   const token = headers["authorization"].split(" ")[1];
   if (!token) {
-    throw new CustomError(403, "token not found", true);
+    throw new CustomError(403, "token not found", "user");
   }
   return token;
 };
@@ -139,7 +139,7 @@ const invalidateAllTokens = async (id) => {
   }
   const deletedTokens = await Token.deleteMany({ user: id });
   if (!deletedTokens.deletedCount) {
-    throw new CustomError(404, "token not exist");
+    throw new CustomError(404, "token not exist", "user");
   }
   return { message: "Tokens deleted successfully" };
 };
