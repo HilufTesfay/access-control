@@ -1,7 +1,7 @@
 import CustomError from "./customError.js";
 //define function to pick valid schema for specific request
 const validKeys = ["body", "query", "params"];
-const pickSchema = (schema) => {
+const pickObject = (schema) => {
   if (typeof schema !== "object" || Object.keys(schema).length === 0) {
     throw new CustomError(400, "invalid schema type", "programmer");
   }
@@ -16,4 +16,4 @@ const pickSchema = (schema) => {
   return validSchema;
 };
 
-export default pickSchema;
+export default pickObject;
