@@ -12,7 +12,6 @@ app.use("*", (req, res, next) => {
   const message = `this ${req.originalUrl} is not found`;
   next(new CustomError(404, message, "user"));
 });
-
 //error handler middleware
 app.use(convertError);
 app.use(handleGlobalError);

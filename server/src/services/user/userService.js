@@ -37,7 +37,7 @@ const deleteUser = async (id) => {
   if (!user || user.deletedCount === 0) {
     throw new CustomError(400, "no user found with this id", "user");
   }
-  return user;
+  return { message: "user deleted successfuly", user };
 };
 
 // Update a user
@@ -57,8 +57,6 @@ const updateUserById = async (id, updates) => {
 const searchUser = async (queryParams) => {
   const { name, email, role } = queryParams;
   const query = {};
-  r;
-
   if (name) {
     query.name = { $regex: name, $options: "i" };
   }

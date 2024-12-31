@@ -20,6 +20,7 @@ const login = async (email, password) => {
 
 //logout
 const logout = async (id) => {
+  if (req.user) delete req.user;
   return await tokenService.invalidateAllTokens(id);
 };
 
