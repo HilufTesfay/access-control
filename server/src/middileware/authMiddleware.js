@@ -25,4 +25,14 @@ const autherizeUser =
     }
     const userRole = req.user.role;
     const userRights = roleRight.get(userRole);
+    const hasRight = requiredRights.every((right) =>
+      userRights.includes(right)
+    );
+    if (!hasRight)
+      return next(
+        new CustomError(403, "you are not autherize to acess this API", "user")
+      );
+    return next();
   };
+
+export default { isAuthenticated, autherizeUser };

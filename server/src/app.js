@@ -1,7 +1,7 @@
 import express from "express";
 import morgan from "morgan";
 import { morganFormat, stream } from "./config/morgan.js";
-import { convertError, handleGlobalError } from "./middileware/errorHandler.js";
+import { convertError, handleGlobalError } from "./middileware/index.js";
 import CustomError from "./utils/customError.js";
 const app = express();
 app.use(express.json());
