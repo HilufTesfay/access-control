@@ -1,4 +1,4 @@
 import CustomError from "./customError.js";
-import pickSchema from "./pick.js";
+import pickObject from "./pick.js";
 
-export { CustomError, pickSchema };
+export { CustomError, pickObject };
