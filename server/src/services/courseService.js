@@ -17,12 +17,15 @@ const deleteCourse = async (id) => {
   return deleteCourse;
 };
 //update course
-const updateCourse = async (updateData) => {
-  const updatatedCourse = await Course.updateOne(updateData);
+const updateCourse = async (id, updateData) => {
+  const updatatedCourse = await Course.findById(id);
+  Object.keys(updateData).forEach((key) => {
+    updatatedCourse[key] = updateData[key];
+  });
   if (!updatatedCourse) {
     throw new CustomError(400, "unable to updated the course", "user");
   }
-  return updatatedCourse;
+  return await updatatedCourse.save();
 };
 
 export default { createCourse, deleteCourse, updateCourse };

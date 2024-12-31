@@ -11,14 +11,14 @@ const createAssesment = async (assesment) => {
 };
 //update assesment
 const updateAssessment = async (updateData) => {
-  const updatedAssessment = await Assessment.findByIdAndUpdate({
-    id: id,
-    updateData,
-  });
+  const updatedAssessment = await Assessment.findById({ id: id });
   if (!updateAssessment) {
     throw new CustomError(400, "unable to update assesement", "user");
   }
-  return updateAssessment;
+  Object.keys(updateData).forEach((key) => {
+    updateAssessment[key] = updateData[key];
+  });
+  return await updateAssessment.save();
 };
 //delete assessment
 const deleteAssessment = async (id) => {

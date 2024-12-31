@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import cleanSchemaPlugin from "./plugin.js";
-const assessmentTpes = ["Quiz", "Exam", "Assignment"];
+const assessmentTpes = ["quiz", "qxam", "qssignment"];
 // Define the assessment schema
 const assessmentSchema = new mongoose.Schema({
   course: {
