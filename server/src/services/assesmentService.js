@@ -10,7 +10,7 @@ const createAssesment = async (assesment) => {
   return await newAssesment.save();
 };
 //update assesment
-const updateAssessment = async (updateData) => {
+const updateAssessment = async (id, updateData) => {
   const updatedAssessment = await Assessment.findById({ id: id });
   if (!updateAssessment) {
     throw new CustomError(400, "unable to update assesement", "user");
