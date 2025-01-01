@@ -11,10 +11,10 @@ const createAssesment = handleAsyncError(async (req, res) => {
 });
 
 //update assesment
-const updateAssessment = handleAsyncError(async (req, res) => {
+const updateAssesment = handleAsyncError(async (req, res) => {
   const { id } = req.params;
   const { body: data } = req;
-  const updatedAssessment = await assesmentService.updateAssessment(id, data);
+  const updatedAssesment = await assesmentService.updateAssessment(id, data);
   res.status(202).json({
     message: "updated successfully",
     updateAssessment: updateAssessment,
@@ -22,7 +22,7 @@ const updateAssessment = handleAsyncError(async (req, res) => {
 });
 
 //delete assesment
-const deleteAssessment = handleAsyncError(async (req, res) => {
+const deleteAssesment = handleAsyncError(async (req, res) => {
   const { id } = req.params;
   const deletedAssesment = await assesmentService.deleteAssessment(id);
   res.status(202).json({
@@ -31,4 +31,4 @@ const deleteAssessment = handleAsyncError(async (req, res) => {
   });
 });
 
-export default { createAssesment, deleteAssessment, updateAssessment };
+export default { createAssesment, deleteAssesment, updateAssesment };

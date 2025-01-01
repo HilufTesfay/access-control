@@ -39,5 +39,13 @@ const verifyOtp = handleAsyncError(async (req, res) => {
     });
   }
 });
-
-export default { login, registerAdmin, verifyOtp };
+//logout
+const logout = handleAsyncError(async (req, res) => {
+  const { id } = req.user;
+  await authService.logout(id);
+  res.status(200).json({
+    message: "logged out",
+    redirect: "/auth/login",
+  });
+});
+export default { login, registerAdmin, verifyOtp, logout };
