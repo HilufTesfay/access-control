@@ -3,12 +3,12 @@ import morgan from "morgan";
 import { morganFormat, stream } from "./config/morgan.js";
 import { convertError, handleGlobalError } from "./middileware/index.js";
 import CustomError from "./utils/customError.js";
-import apiRoute from "./routes/index.js";
+import route from "./routes/index.js";
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan(morganFormat, { stream }));
-app.use("/v1", apiRoute);
+app.use("/v1", route);
 app.use("*", (req, res, next) => {
   const message = `this ${req.originalUrl} is not found`;
   next(new CustomError(404, message, "user"));

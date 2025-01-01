@@ -24,3 +24,5 @@ const generateOTP = async (email) => {
 const verifyOTP = async (email, otp) => {
   return await OTP.validateOTP(email, otp);
 };
+
+export default { generateOTP, verifyOTP };

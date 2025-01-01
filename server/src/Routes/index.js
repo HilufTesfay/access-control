@@ -26,7 +26,7 @@ const routes = [
 ];
 
 routes.forEach((route) => {
-  Router.route(route.path, route.route);
+  Router.use(route.path, route.route);
 });
 
-export default { Router };
+export default Router;

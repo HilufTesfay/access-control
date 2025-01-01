@@ -1,8 +1,8 @@
 import nodemailer from "nodemailer";
 import { envConfig } from "../config/config.js";
 import { errorLogger, emailLogger } from "../config/logger.js";
-import { CustomError } from "../utils/errorHandlers/customError.js";
-import { otpService } from "./otpService.js";
+import { CustomError } from "../utils/index.js";
+import otpService from "./otpService.js";
 
 // define email settings
 const emailSettings = {

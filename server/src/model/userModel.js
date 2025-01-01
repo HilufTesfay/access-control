@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
-import cleanSchemaPlugin from "./plugin";
+import cleanSchemaPlugin from "./plugin.js";
 // Define the user schema
 const userSchema = new mongoose.Schema(
   {

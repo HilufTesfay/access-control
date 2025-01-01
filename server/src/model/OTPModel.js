@@ -7,6 +7,7 @@ const OTPSchema = new mongoose.Schema(
       required: true,
     },
     email: {
+      type: String,
       ref: "User",
       required: true,
     },

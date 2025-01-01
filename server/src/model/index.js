@@ -1,4 +1,4 @@
-import Assessment from "./assesment.js";
+import Assessment from "./assesmentModel.js";
 import Course from "./courseModel.js";
 import User from "./userModel.js";
 import Token from "./tokenModel.js";

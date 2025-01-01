@@ -1,7 +1,6 @@
-import Joi, { object } from "joi";
 import { pickObject, CustomError } from "../utils/index.js";
 
-//validate middleware
+////  Middleware to validate request body, query and params against a schema
 const validate = (schema) => async (req, res, next) => {
   const validKeys = ["query", "params", "body"];
   const validSchema = pickObject(schema, validKeys);

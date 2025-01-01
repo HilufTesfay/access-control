@@ -1,5 +1,5 @@
 import { User } from "../../model/index.js";
-import CustomError from "../../utils/index.js";
+import { CustomError } from "../../utils/index.js";
 
 const validateUpdateData = (updateData) => {
   const protectedData = new Set(["email", "password"]);
