@@ -40,4 +40,4 @@ const verifyOtp = handleAsyncError(async (req, res) => {
   }
 });
 
-export { login, registerAdmin, verifyOtp };
+export default { login, registerAdmin, verifyOtp };
