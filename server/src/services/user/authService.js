@@ -4,6 +4,7 @@ import { CustomError } from "../../utils/index.js";
 //register admin
 const registerAdmin = async (data) => {
   const admin = await userService.createUser(data);
+  return admin;
 };
 //login
 const login = async (email, password) => {
@@ -14,8 +15,8 @@ const login = async (email, password) => {
   if (!(await user.comparePassword(password))) {
     throw new CustomError(400, "Incorrect cridentials", "user");
   }
-  const tokens = await tokenService.generateAuthToken(user.id, user.role);
-  return { message: "login successfully", tokens: tokens };
+
+  return { login: true, user };
 };
 
 //logout

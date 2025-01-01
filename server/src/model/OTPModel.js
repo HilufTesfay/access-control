@@ -22,14 +22,14 @@ const OTPSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
-
+// validate OTP
 OTPSchema.statics.validateOTP = async function (email, otp) {
-  const record = await this.findOne({ email });
-  if (record && record.otp === otp) {
-    await this.deleteOne({ email });
-    return true;
-  }
-  return false;
+  const OTPrecord = await this.findOne({ email, otp });
+  if (!OTPrecord) return { valid: false, message: "Invalid OTP" };
+  const CurrentTime = Date.now().toJSDate();
+  if (CurrentTime > OTPrecord.expires)
+    return { valid: false, message: "OTP expired" };
+  return { valid: true, message: "OTP verified" };
 };
 
 // Create the OTP model

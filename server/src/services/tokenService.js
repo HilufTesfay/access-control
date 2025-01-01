@@ -143,6 +143,14 @@ const invalidateAllTokens = async (id) => {
   }
   return { message: "Tokens deleted successfully" };
 };
+//generate temporary token
+const generateTempToken = async (id, userRole) => {
+  const tokenType = tokenTypes.TEMP;
+  const expires = DateTime.now().plus({ minutes: 5 });
+  const tempToken = generateToken(id, userRole, tokenType, expires);
+  await saveToken(tempToken, id, tokenType, expires);
+  return tempToken;
+};
 
 export default {
   refreshToken,
@@ -154,4 +162,5 @@ export default {
   extractToken,
   invalidateAllTokens,
   verifyToken,
+  generateTempToken,
 };

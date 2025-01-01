@@ -1,5 +1,6 @@
-import Assessment from "./assesment";
-import Course from "./courseModel";
-import User from "./userModel";
-import Token from "./tokenModel";
-export { Assessment, Course, User, Token };
+import Assessment from "./assesment.js";
+import Course from "./courseModel.js";
+import User from "./userModel.js";
+import Token from "./tokenModel.js";
+import OTP from "./OTPModel.js";
+export { Assessment, Course, User, Token, OTP };
