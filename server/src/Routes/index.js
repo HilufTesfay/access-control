@@ -1,5 +1,4 @@
 import express from "express";
-
 import userRoute from "./user/userRoute.js";
 import authRoute from "./user/authRoute.js";
 import assignmentRoute from "./assignmentRoute.js";
